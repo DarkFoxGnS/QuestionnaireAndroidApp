@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="night_backgroundColor">#191919</color>
+    <color name="night_layerColor">#505050</color>
+    <color name="night_foregroundColor">#bb86fc</color>
+    <color name="night_statusBarColor">#101010</color>
+    <color name="night_textColor">#e2e2e2</color>
+
+    <color name="day_backgroundColor">#F0F0F0</color>
+    <color name="day_layerColor">#B0B0B0</color>
+    <color name="day_foregroundColor">#ffb70c</color>
+    <color name="day_statusBarColor">#F0F0F0</color>
+    <color name="day_textColor">#101010</color>
+</resources>

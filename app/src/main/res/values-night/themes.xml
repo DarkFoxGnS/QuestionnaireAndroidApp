@@ -1,0 +1,22 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.QuizApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="android:statusBarColor">@color/night_statusBarColor</item>
+        <item name="android:background">@color/night_backgroundColor</item>
+        <item name="android:textColor">@color/night_textColor</item>
+        <item name="buttonActive">@color/night_foregroundColor</item>
+        <item name="buttonInactive">@color/night_layerColor</item>
+    </style>
+
+    <style name="PrimaryButton" parent="">
+        <item name="android:colorButtonNormal">@color/night_foregroundColor</item>
+        <item name="android:textColor">@color/night_backgroundColor</item>
+    </style>
+
+    <style name="SecondaryButton" parent="">
+        <item name="android:colorButtonNormal">@color/night_layerColor</item>
+        <item name="android:textColor">@color/night_textColor</item>
+    </style>
+</resources>
