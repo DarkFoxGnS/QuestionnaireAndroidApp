@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.tiborszabo.quizapp"},{"l":"com.tiborszabo.quizapp.activities"},{"l":"com.tiborszabo.quizapp.managers"},{"l":"com.tiborszabo.quizapp.objects"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.tiborszabo"},{"l":"com.tiborszabo.quizapp"},{"l":"com.tiborszabo.quizapp.activities"},{"l":"com.tiborszabo.quizapp.managers"},{"l":"com.tiborszabo.quizapp.objects"}];updateSearchResults();

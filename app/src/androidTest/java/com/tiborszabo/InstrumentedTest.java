@@ -23,6 +23,7 @@ import java.util.List;
 
 /**
  * Tests that require an android device to be executed.
+ * @author Tibor Peter Szabo
  */
 @RunWith(JUnit4.class)
 public class InstrumentedTest {
@@ -36,7 +37,7 @@ public class InstrumentedTest {
         try{
             Looper.prepare();
         }catch (Exception e){
-            
+
         }
         for (int i = 0; i < 50; i++) {
             //Create mockContext

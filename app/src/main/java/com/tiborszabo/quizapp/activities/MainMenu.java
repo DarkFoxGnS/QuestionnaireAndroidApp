@@ -57,8 +57,8 @@ public class MainMenu extends Activity {
                     "Water;MULTICHOICE;What is in water?;Water is made up of 2 Hydrogen and 1 Oxygen;Oxygen;true;Argon;false;Nitrogen;false;Hydrogen;true\r\n" +
                     "Smiley;SINGLECHOICE;How is the commonly known smiley drawn?;:);(:;false;<:);false;~_~;false;:);true\r\n" +
                     "Fox;SINGLECHOICE;What is the Latin name for the red fox?;The latin name of the red fox is Vulpes Vulpes;Vulpes Vulpes;true;Canis lupus familiaris;false;Felis catus;false\r\n" +
-                    "Cat;SINGLECHOICE;What is the Latin name for the cat?;The latin name of the red fox is Felis catus;Vulpes Vulpes;false;Canis lupus familiaris;false;Felis catus;true\r\n" +
-                    "Dog;SINGLECHOICE;What is the Latin name for the dog?;The latin name of the red fox is Canis lupus familiaris;Vulpes Vulpes;false;Canis lupus familiaris;true;Felis catus;false\r\n" +
+                    "Cat;SINGLECHOICE;What is the Latin name for the cat?;The latin name of the cat is Felis catus;Vulpes Vulpes;false;Canis lupus familiaris;false;Felis catus;true\r\n" +
+                    "Dog;SINGLECHOICE;What is the Latin name for the dog?;The latin name of the dog is Canis lupus familiaris;Vulpes Vulpes;false;Canis lupus familiaris;true;Felis catus;false\r\n" +
                     "Easter Egg;SINGLECHOICE;Which game coined the term Easter Egg?;Adventure was the first game that used the term Easter Egg.;Adventure(1980);true;Moonlander(1973);false;Gradius(1985);false\r\n" +
                     "Creator;SINGLECHOICE;Who is the creator of this software?;Yes, it is me Tibor Peter Szabo.;Pan Peter;false;Tinker Bell;false;Captain Hook;false;Tibor Peter Szabo;true\r\n" +
                     "Draw;TEXT;Draw a the most iconic smiley.;:);:);true\r\n" +

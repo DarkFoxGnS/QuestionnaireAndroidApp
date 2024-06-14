@@ -13,6 +13,7 @@ import java.util.List;
 
 /**
  * These tests will be executed on the machine host without the need for an Android device.
+ * @author Tibor Peter Szabo
  */
 public class UnitTest {
     /**
