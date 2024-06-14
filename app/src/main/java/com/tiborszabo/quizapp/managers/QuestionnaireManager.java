@@ -1,6 +1,7 @@
 package com.tiborszabo.quizapp.managers;
 
 import android.content.res.Resources;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.ContextThemeWrapper;
 import android.view.View;
@@ -76,7 +77,11 @@ public class QuestionnaireManager {
                 break;
             case TEXT:
                 EditText answer = (EditText) this.views.get(0);
-                correct = answer.getText().toString().toLowerCase().equals(this.questions.get(this.questionIndex).getAnswerText().toArray()[0].toString().toLowerCase());
+                correct = answer.getText().toString().toLowerCase().trim().equals(this.questions.get(this.questionIndex).getAnswerText().toArray()[0].toString().toLowerCase().trim());
+
+                Log.v("",answer.getText().toString().toLowerCase().trim());
+                Log.v("",this.questions.get(this.questionIndex).getAnswerText().toArray()[0].toString().toLowerCase().trim());
+
                 break;
         }
         //If no difference was found, save it to the completed questions.
@@ -164,7 +169,7 @@ public class QuestionnaireManager {
      *
      */
     private void showSinglechoice(android.content.Context context, ScrollView descriptionView, LinearLayout answerView){
-        //Dispaly question.
+        //Display question.
         TextView description = new TextView(context);
         description.setText(this.questions.get(this.questionIndex).getQuestion());
         descriptionView.addView(description);
