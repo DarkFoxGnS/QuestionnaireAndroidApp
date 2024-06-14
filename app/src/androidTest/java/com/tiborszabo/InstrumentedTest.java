@@ -1,7 +1,7 @@
 package com.tiborszabo;
 
 import android.content.Context;
-import android.util.Log;
+import android.os.Looper;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -32,7 +32,13 @@ public class InstrumentedTest {
      */
     @Test
     public void test_question_manager_text(){
-        for (int i = 0; i < 50; i++) {;
+        //Try to prepare the looper to interact with the mock UI elements.
+        try{
+            Looper.prepare();
+        }catch (Exception e){
+            
+        }
+        for (int i = 0; i < 50; i++) {
             //Create mockContext
             Context mockContext = InstrumentationRegistry.getInstrumentation().getContext();
 
@@ -79,7 +85,13 @@ public class InstrumentedTest {
      */
     @Test
     public void test_question_manager_singlechoice(){
-        for (int i = 0; i < 50; i++) {;
+        //Try to prepare the looper to interact with the mock UI elements.
+        try{
+            Looper.prepare();
+        }catch (Exception e){
+
+        }
+        for (int i = 0; i < 50; i++) {
             //Create mockContext
             Context mockContext = InstrumentationRegistry.getInstrumentation().getContext();
 
@@ -99,6 +111,7 @@ public class InstrumentedTest {
                 for (int k = 0; k < limit; k++) {
                     lhs.put(""+k,k == correct);
                 }
+                question.setAnswers(lhs);
                 testingData.add(question);
             }
 
@@ -139,7 +152,13 @@ public class InstrumentedTest {
      */
     @Test
     public void test_question_manager_multichoice(){
-        for (int i = 0; i < 50; i++) {;
+        //Try to prepare the looper to interact with the mock UI elements.
+        try{
+            Looper.prepare();
+        }catch (Exception e){
+
+        }
+        for (int i = 0; i < 50; i++) {
             //Create mockContext
             Context mockContext = InstrumentationRegistry.getInstrumentation().getContext();
 
@@ -158,6 +177,7 @@ public class InstrumentedTest {
                 for (int k = 0; k < (int)(Math.random()*4+1); k++) {
                     lhs.put(""+k,Math.random()>0.5);
                 }
+                question.setAnswers(lhs);
                 testingData.add(question);
             }
 
@@ -179,6 +199,7 @@ public class InstrumentedTest {
                 for (int j = 0; j < answers.length; j++) {
                     answers[j] = question.getAnswerValue(question.getAnswerText().toArray()[j]);
                 }
+
 
                 for (int j = 0; j < answerView.getChildCount(); j++) {
                     Button b = (Button) answerView.getChildAt(j);

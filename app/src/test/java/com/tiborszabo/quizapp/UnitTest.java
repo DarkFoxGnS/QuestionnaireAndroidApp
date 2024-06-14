@@ -1,23 +1,14 @@
 package com.tiborszabo.quizapp;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
 
 import static org.junit.Assert.*;
-
-import android.app.Application;
-import android.app.Instrumentation;
-import android.content.Context;
-import android.content.ContextWrapper;
-import android.widget.ScrollView;
-
-import com.tiborszabo.quizapp.managers.QuestionnaireManager;
 import com.tiborszabo.quizapp.objects.Question;
+import com.tiborszabo.quizapp.objects.SettingData;
+import com.tiborszabo.quizapp.objects.SettingsList;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.List;
 
 /**
@@ -69,6 +60,20 @@ public class UnitTest {
                 String expected = lhs.keySet().toArray()[j].toString();
                 assertEquals(expected,answer);
             }
+
+            //Test toString() function.
+            StringBuilder expected = new StringBuilder();
+            expected.append(name+";");
+            expected.append(questionType.name()+";");
+            expected.append(question+";");
+            expected.append(explanation+";");
+
+            for (String answer : lhs.keySet()){
+                boolean value = lhs.get(answer);
+                expected.append(answer+";"+value+";");
+            }
+
+            assertEquals(expected.substring(0,expected.length()-1),testingQuestion.toString());
         }
     }
 
@@ -76,7 +81,69 @@ public class UnitTest {
      * Tests the SettingData object.
      */
     @Test
-    public void test_SettingData(){
+    public void test_setting_data(){
+        for (int i = 0; i < 50; i++) {
+            //create data
+            String name = ""+i;
+            String value = ""+Math.random();
 
+            //create SettingData object.
+            SettingData testSettingData = new SettingData(name,value);
+
+            //Test name and value query.
+            assertEquals(name,testSettingData.getName());
+            assertEquals(value,testSettingData.getData());
+
+            //create new name and value.
+            name += ""+i;
+            value += ""+Math.random();
+
+            //change the name and value attribute in the object.
+            testSettingData.setName(name);
+            testSettingData.setData(value);
+
+            //assert newly added data.
+            assertEquals(name,testSettingData.getName());
+            assertEquals(value,testSettingData.getData());
+
+            //Check toString function.
+            assertEquals(name+";"+value,testSettingData.toString());
+        }
+    }
+
+    /**
+     * Tests the SettingList object.
+     */
+    @Test
+    public void test_settings_list(){
+        for (int i = 0; i < 50; i++) {
+            //Create the SettingList and the expected data holder.
+            SettingsList testSettingsList = new SettingsList();
+            List<SettingData> dataList = new ArrayList<>();
+
+            //Fill both the SettingList and the expected data with testing data.
+            for (int j = 0; j < 10; j++) {
+                String name = j+"";
+                String value = Math.random()+"";
+                SettingData testingData = new SettingData(name,value);
+
+                dataList.add(testingData);
+                testSettingsList.add(testingData);
+            }
+
+            for (SettingData expectedData : dataList){
+
+                //Check if data is equal and the object is equal based on the name.
+                assertEquals(expectedData.getData(),testSettingsList.getValueByName(expectedData.getName()));
+                assertEquals(expectedData,testSettingsList.getObjectByName(expectedData.getName()));
+            }
+
+            List<String> stringList = new ArrayList<>();
+            for (SettingData expectedData : dataList){
+                stringList.add(expectedData.toString());
+            }
+
+            assertEquals(stringList,testSettingsList.toStringList());
+        }
     }
 }

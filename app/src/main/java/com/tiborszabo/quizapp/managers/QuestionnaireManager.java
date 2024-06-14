@@ -1,7 +1,6 @@
 package com.tiborszabo.quizapp.managers;
 
 import android.content.res.Resources;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.ContextThemeWrapper;
 import android.view.View;
@@ -15,14 +14,8 @@ import com.tiborszabo.quizapp.R;
 import com.tiborszabo.quizapp.activities.MainMenu;
 import com.tiborszabo.quizapp.objects.Question;
 
-import org.w3c.dom.Text;
-
-import java.io.Console;
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.List;
-import java.util.ResourceBundle;
 import java.util.Set;
 
 /**
@@ -78,10 +71,6 @@ public class QuestionnaireManager {
             case TEXT:
                 EditText answer = (EditText) this.views.get(0);
                 correct = answer.getText().toString().toLowerCase().trim().equals(this.questions.get(this.questionIndex).getAnswerText().toArray()[0].toString().toLowerCase().trim());
-
-                Log.v("",answer.getText().toString().toLowerCase().trim());
-                Log.v("",this.questions.get(this.questionIndex).getAnswerText().toArray()[0].toString().toLowerCase().trim());
-
                 break;
         }
         //If no difference was found, save it to the completed questions.
@@ -187,29 +176,26 @@ public class QuestionnaireManager {
             b.getBackground().setTint(buttonInactiveColor.data);
 
 
-            b.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Button b = (Button) v;
-                    TypedValue buttonActiveColor = new TypedValue();
-                    TypedValue buttonInactiveColor = new TypedValue();
-                    Resources.Theme theme = context.getTheme();
-                    theme.resolveAttribute(R.attr.buttonActive,buttonActiveColor,true);
-                    theme.resolveAttribute(R.attr.buttonInactive,buttonInactiveColor,true);
+            b.setOnClickListener(v -> {
+                Button b1 = (Button) v;
+                TypedValue buttonActiveColor = new TypedValue();
+                TypedValue buttonInactiveColor1 = new TypedValue();
+                Resources.Theme theme1 = context.getTheme();
+                theme1.resolveAttribute(R.attr.buttonActive,buttonActiveColor,true);
+                theme1.resolveAttribute(R.attr.buttonInactive, buttonInactiveColor1,true);
 
-                    for (View view: views) {
-                        Button button = (Button) view;
-                        button.setSelected(false);
-                        button.getBackground().setTint(buttonInactiveColor.data);
+                for (View view: views) {
+                    Button button = (Button) view;
+                    button.setSelected(false);
+                    button.getBackground().setTint(buttonInactiveColor1.data);
 
-                    }
+                }
 
-                    b.setSelected(!b.isSelected());
-                    if (b.isSelected()){
-                        b.getBackground().setTint(buttonActiveColor.data);
-                    }else{
-                        b.getBackground().setTint(buttonInactiveColor.data);
-                    }
+                b1.setSelected(!b1.isSelected());
+                if (b1.isSelected()){
+                    b1.getBackground().setTint(buttonActiveColor.data);
+                }else{
+                    b1.getBackground().setTint(buttonInactiveColor1.data);
                 }
             });
             this.views.add(b);
@@ -242,23 +228,20 @@ public class QuestionnaireManager {
             theme.resolveAttribute(R.attr.buttonInactive,buttonInactiveColor,true);
             b.getBackground().setTint(buttonInactiveColor.data);
 
-            b.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Button b = (Button) v;
-                    b.setSelected(!b.isSelected());
+            b.setOnClickListener(v -> {
+                Button b1 = (Button) v;
+                b1.setSelected(!b1.isSelected());
 
-                    TypedValue buttonActiveColor = new TypedValue();
-                    TypedValue buttonInactiveColor = new TypedValue();
-                    Resources.Theme theme = context.getTheme();
-                    theme.resolveAttribute(R.attr.buttonActive,buttonActiveColor,true);
-                    theme.resolveAttribute(R.attr.buttonInactive,buttonInactiveColor,true);
+                TypedValue buttonActiveColor = new TypedValue();
+                TypedValue buttonInactiveColor1 = new TypedValue();
+                Resources.Theme theme1 = context.getTheme();
+                theme1.resolveAttribute(R.attr.buttonActive,buttonActiveColor,true);
+                theme1.resolveAttribute(R.attr.buttonInactive, buttonInactiveColor1,true);
 
-                    if (b.isSelected()){
-                        b.getBackground().setTint(buttonActiveColor.data);
-                    }else{
-                        b.getBackground().setTint(buttonInactiveColor.data);
-                    }
+                if (b1.isSelected()){
+                    b1.getBackground().setTint(buttonActiveColor.data);
+                }else{
+                    b1.getBackground().setTint(buttonInactiveColor1.data);
                 }
             });
             this.views.add(b);
